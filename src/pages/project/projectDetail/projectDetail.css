@@ -1,0 +1,20 @@
+.projectDetailContainer {
+  width: 600px;
+}
+
+.projectDetailTitle {
+  margin-bottom: 25px;
+}
+
+.projectDetailWrapper {
+  border: 1px solid #ddd;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.projectDetailGroup {
+  display: flex;
+  justify-content: space-between;
+}

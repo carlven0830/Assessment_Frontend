@@ -1,0 +1,74 @@
+.addProjectContainer {
+  width: 600px;
+  padding: 25px 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.addProjectTitle {
+  width: 100%;
+  display: block;
+  font-size: 40px;
+  color: #555555;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formGroup .formGroupSelect {
+  margin-bottom: 15px;
+}
+
+.formGroupSelect input {
+  margin-top: 6px;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-input {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  gap: 6px;
+}
+
+.addProjectBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #1266f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+}

@@ -1,0 +1,47 @@
+.tableContainer {
+  overflow-x: auto;
+}
+
+.responsiveTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsiveTable th,
+.responsiveTable td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.actionWrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.actionWrapper button {
+  background: transparent;
+}
+
+.actionIcon {
+  height: 100%;
+  font-size: 20px;
+}
+
+.actionIcon.view:hover {
+  color: #3393ff;
+}
+
+.actionIcon.edit:hover {
+  color: #edc71d;
+}
+
+.actionIcon.delete:hover {
+  color: #e2391e;
+}
+
+@media (max-width: 768px) {
+  .responsiveTable {
+    font-size: 14px;
+  }
+}

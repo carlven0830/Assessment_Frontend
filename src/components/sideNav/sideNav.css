@@ -1,24 +1,3 @@
-.sideNavContainer {
-  background: #111827;
-  /* position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  bottom: 0; */
-  overflow: hidden;
-  height: 100vh;
-  /* width: 65px; */
-  width: 200px;
-  padding: 10px;
-  transition: width 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-}
-
-.sideNavContainer.open {
-  width: 65px;
-}
-
 .sideNavLogo {
   display: flex;
   justify-content: space-between;

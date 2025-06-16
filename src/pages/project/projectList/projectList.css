@@ -1,20 +1,24 @@
-.projectTitle {
+.projectListContainer {
+  width: 100%;
+}
+
+.projectListTitle {
   margin-bottom: 20px;
 }
 
-.projectCreateGroup {
+.projectListGroup {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 15px;
 }
 
-.projectCreateGroup button {
+.projectListGroup button {
   background: #1ded95;
   color: #fff;
   padding: 5px 10px;
   font-weight: 500;
 }
 
-.projectCreateGroup button:hover {
+.projectListGroup button:hover {
   background: #0dd08c;
 }

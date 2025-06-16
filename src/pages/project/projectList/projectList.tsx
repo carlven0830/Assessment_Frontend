@@ -10,6 +10,7 @@ import { projectColumns } from "../../../models/data/projectColumn";
 import { OrderByEnum } from "../../../models/enums/orderByEnum";
 import "./projectList.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function ProjectList() {
   const [data, setData] = useState<ProjectResponse[]>([]);
@@ -22,7 +23,12 @@ function ProjectList() {
     hasFetched.current = true;
 
     const fetchData = async () => {
-      await getJwtToken("GetProjectList");
+      var respJwt = await getJwtToken("GetProjectList");
+
+      if (!respJwt || respJwt.status !== 200 || !respJwt.token) {
+        toast.error("Session expired. Redirecting to login.");
+        navigate("/login");
+      }
 
       const resp = await getProjectList({
         pageNum: 1,
@@ -44,43 +50,60 @@ function ProjectList() {
     fetchData();
   }, []);
 
-  const handleDetail = (row: ProjectResponse) => {
+  const viewData = (row: ProjectResponse) => {
     navigate(`/project/${row.id}`);
   };
 
-  const addProject = () => {
+  const addData = () => {
     navigate("/project/add");
   };
 
-  const handleDelete = async (row: ProjectResponse) => {
+  const updateData = (row: ProjectResponse) => {
+    navigate(`/project/edit/${row.id}`, { state: row });
+  };
+
+  const deleteData = async (row: ProjectResponse) => {
     try {
-      await getJwtToken("DeleteProject");
+      var respJwt = await getJwtToken("DeleteProject");
+
+      if (!respJwt || respJwt.status !== 200 || !respJwt.token) {
+        toast.error("Session expired. Redirecting to login.");
+        navigate("/login");
+      }
 
       const resp = await deleteProject(row.id);
 
       if (resp.status == 200) {
-        window.location.reload();
+        toast.success(resp.message);
+
+        setData((prev) => prev.filter((p) => p.id !== row.id));
+      } else {
+        toast.error(resp.message);
       }
     } catch (error) {
       console.error("Failed delete project", error);
+
+      toast.error("Failed delete project");
     }
   };
 
   return (
     <>
-      <div className="projectTitle">
-        <h1>Task Page</h1>
+      <div className="projectListContainer">
+        <div className="projectListTitle">
+          <h1>Project</h1>
+        </div>
+        <div className="projectListGroup">
+          <button onClick={addData}>Create</button>
+        </div>
+        <Table
+          columns={projectColumns}
+          data={data}
+          onDetail={viewData}
+          onEdit={updateData}
+          onDelete={deleteData}
+        ></Table>
       </div>
-      <div className="projectCreateGroup">
-        <button onClick={addProject}>Create</button>
-      </div>
-      <Table
-        columns={projectColumns}
-        data={data}
-        onDetail={handleDetail}
-        onEdit={(row) => console.log("Edit", row)}
-        onDelete={handleDelete}
-      ></Table>
     </>
   );
 }

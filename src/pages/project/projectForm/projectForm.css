@@ -1,5 +1,6 @@
 .addProjectContainer {
   width: 600px;
+  margin: auto;
   padding: 25px 50px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -35,7 +36,7 @@
   position: relative;
 }
 
-.dropdown-input {
+.dropdownInput {
   width: 100%;
   padding: 10px;
   cursor: pointer;
@@ -43,7 +44,7 @@
   border-radius: 4px;
 }
 
-.dropdown-menu {
+.dropdownMenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -55,11 +56,19 @@
   border: 1px solid #ccc;
 }
 
-.dropdown-item {
+.dropdownItem {
   display: flex;
   align-items: center;
   padding: 4px;
   gap: 6px;
+}
+
+.dropdownItem input {
+  cursor: pointer;
+}
+
+.select {
+  cursor: pointer;
 }
 
 .addProjectBtn {
